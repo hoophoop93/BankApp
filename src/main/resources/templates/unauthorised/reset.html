@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank</title>
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="style/font-awesome.min.css">
+    <link rel="stylesheet" href="style/custom.css">
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+
+<!-- Top -->
+<div class="container-fluid text-white text-center top" >
+    <br /><br />
+
+    <div class="row" >
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+
+            <div id="form-olvidado">
+                <div class="text-danger" role="alert" th:if="${#fields.hasErrors('${model}')}">
+                    <h5 th:each="e : ${#fields.errors('${model}')}" th:text="${e}"></h5>
+                </div>
+
+                <form accept-charset="UTF-8"  th:action="@{/reset}" th:object="${model}" role="form" id="login-recordar" method="post" class="form-conatiner">
+                    <fieldset>
+                        <h3><span class="text-warning">RESET HASŁA</span></h3>
+                        <h6><span class="text-warning">Podaj swój PESEL, nowe hasło wyślemy na Twój adres e-mail</span></h6>
+                        <div class="form-group input-group">
+                        <input class="form-control" placeholder="PESEL" name="pesel" required="" th:field="*{pesel}">
+                        <span class="text-danger" th:if="${#fields.hasErrors('pesel')}" th:errors="*{pesel}"></span>
+                    </div>
+                        <div class="container">
+                            <a href="/login"><b><span class="text-danger">Powrót do logowania</span></b></a>
+                       </div>
+                        <button type="submit" class="btn btn-warning top-button" id="btn-olvidado">
+                            RESETUJ HASŁO
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+            <form action="#" th:action="@{/register}">
+            <button class="btn btn-danger text-white top-button">ZAREJESTRUJ</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="js/jquery-3.2.1.slim.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+/** Globalne style **/
+p {
+	font-size: .9rem;
+	line-height: 1.75rem;
+}
+
+.inf{
+
+    padding: 20px 60px;
+    border: 0px solid #fff ;
+    -webkit-box-shadow:-1px 4px 26px 11px rgba(0,0,0,0.75); -moz-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75); box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+}
+
+.inf2{
+    padding: 20px 60px;
+    border: 0px solid #fff ;
+    -webkit-box-shadow:-1px 4px 26px 11px rgba(0,0,0,0.75); -moz-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75); box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+}
+
+.inf1{
+    
+    padding: 20px 60px;
+    border: 0px solid #fff ;
+    border-bottom-style: none;
+    -webkit-box-shadow:-1px 4px 26px 11px rgba(0,0,0,0.75); -moz-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75); box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+}
+
+
+body, html{
+    background-image: url('../images/tlo.jpg');
+    background-size: cover;
+    position: inherit;
+    background-repeat: no-repeat;
+
+}
+.information{border: 0px solid #fff ; padding: 20px 60px;margin-top: -10vh;-webkit-box-shadow:-1px 4px 26px 11px rgba(0,0,0,0.75); -moz-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75); box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);}
+
+.information1{height: 100%; border: 0px solid #fff ; padding: 20px 60px;margin-top: 1vh;-webkit-box-shadow:-1px 4px 26px 11px rgba(0,0,0,0.75); -moz-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75); box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);}
+
+
+
+.sidenav {
+    height: 100%;
+    width: 300px;
+    position:inherit;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    float:left;
+    background-color: #111;
+
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+
+#radio_lista{
+    float: left;
+}
+
+.sidenav .mini{
+    font-size: 16px;
+    padding: 4px 4px 4px 96px;
+}
+
+.sidenav a {
+    padding: 6px 6px 6px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+
+
+nav.navbar {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+.dropdown-menu {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+	padding: .75rem 5.25rem;
+}
+
+.page-label {
+	letter-spacing: .15rem;
+	font-size: 1.75rem;
+}
+
+/** Navbar **/
+.navbar .navbar-nav .nav-item {
+    
+
+}
+
+
+
+/** Top **/
+.top {
+    height: 100%;
+    background-image: url('../images/tlo.jpg');
+    background-size: cover;
+    position: inherit;
+    background-repeat: no-repeat;
+
+}
+
+
+
+.top-header {
+	margin-bottom: 10.25rem;
+	font-size: 2.75rem;
+}
+
+.top-text {
+	font-size: 1rem;
+}
+
+
+
+.top-button {
+    text-align: center;
+}
+
+.top-button {
+	margin-top: 1.5rem;
+}
+
+/**logowanie**/
+
+.form-conatiner{ border: 0px solid #fff ; padding: 20px 60px;margin-top: 20vh;-webkit-box-shadow:-1px 4px 26px 11px rgba(0,0,0,0.75); -moz-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75); box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);background-color: rgba(0, 0, 0, 0.6);}
+
+
+
+

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Panel użytkownika - nowy przelew</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+ 
+        <link rel="stylesheet" href="style/custom.css">
+    </head>
+    <body>
+
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Pokaż lub ukryj nawigację">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand"  onclick="openLeftMenu()">
+                <img src="images/hamburger.png" width="52" height="52" class="d-inline-block align-top rounded" alt="idź na start">
+            </a>
+
+
+
+            <div class="collapse navbar-collapse" id="mainNavigation">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/user">Start <span class="sr-only">(jesteś tutaj)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">O aplikacji</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kontakt</a>
+                    </li>
+                </ul>
+
+
+                <ul class="navbar-nav ml-sm-5 mt-2 mt-md-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="rounded-circle" width="20" height="20" src="images/avatar.png" alt="Imię i nazwisko">
+                            <text th:text="${klient.imie} + ' '+${klient.nazwisko}" />
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                            <a class="dropdown-item" href="/settings">Ustawienia</a>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/logout">Wyloguj</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+        <div class="sidenav" style="display:block" id="leftMenu">
+            <a href="#">Przelew</a>
+            <a href="/transfer" class="mini">Nowy</a>
+            <a href="/cykliczne" class="mini">Zlecenia stałe</a>
+            <a href="/staliOdbiorcy" class="mini">Stali odbiorcy</a>
+            <a href="/zleceniaStale" class="mini">Usuń zlecenie stałe</a>
+            <a href="/raport">Raport PDF</a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+
+
+        <div class="jumbotron jumbotron-fluid text-white text-center top">
+            <div class="information">  
+                <div class="container">
+
+
+
+                    <div class="notification note-default">
+                        <div class="row">
+                            <div class="col-md-9 note-content">
+                                <h3 class="note-title">Stan konta:</h3>
+                                <h1 class="text-warning"><text th:text="${rachunek.kwota}" /> zł </h1>
+                                <h5 class="text-warning"><text th:text="${rachunek.numerKonta}" />  </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="information1">
+                <div class="text-danger" role="alert" th:if="${#fields.hasErrors('${zlecenieStale}')}">
+                    <h5 th:each="e : ${#fields.errors('${zlecenieStale}')}" th:text="${e}"></h5>
+                </div>
+                <div class="container">
+
+                    <form action="#"  th:object="${zlecenieStale}" th:action="@{/zleceniaStale}" role="form" method="POST">
+
+                        <div class="form-group row" id="radio_lista" style="float: none;
+    margin: 0 auto; width: 250px !important;">
+
+                            <select th:field="*{idZlecenia}" class="form-control">
+                                <option th:each="zlecenieStale : ${zlecenieStalesList}"
+                                        th:value="${zlecenieStale.getIdZlecenia()}"
+                                        th:text="${zlecenieStale.getKlientZleceniaStaleOdbiorca().getImie()+' '+
+                                    zlecenieStale.getKlientZleceniaStaleOdbiorca().getNazwisko()+', '+
+                                    zlecenieStale.getKwota()+ ' zł,'+ ' Tytuł przelewu: '+
+                                     zlecenieStale.getTytul()+ ', Co ile dni: '+
+                                     zlecenieStale.getLiczbaDni()}"
+                                />
+                            </select>
+
+                        </div>
+                        <button class="btn btn-warning text-white top-button">Usuń zlecenie</button>
+                    </form>
+                  </div>
+
+            </div>
+
+        
+
+   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/jquery-3.2.1.slim.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#olvidado').click(function(e) {
+                    e.preventDefault();
+                    $('div#form-olvidado').toggle('500');
+                });
+                $('#acceso').click(function(e) {
+                    e.preventDefault();
+                    $('div#form-olvidado').toggle('500');
+                });
+            });
+        </script>
+
+            <script>
+function openLeftMenu() {
+	if (document.getElementById("leftMenu").style.display == "none") {
+		document.getElementById("leftMenu").style.display = "block";
+	}else {
+		document.getElementById("leftMenu").style.display = "none";
+	}
+}
+</script>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank</title>
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="style/font-awesome.min.css">
+    <link rel="stylesheet" href="style/custom.css">
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+
+<!-- Top -->
+<div class="container-fluid text-white text-center top" >
+    <br /><br />
+    <div th:each="i : ${infos}">
+        <h3 th:text="${i}"></h3>
+    </div>
+    <div class="text-danger" role="alert" th:if="${#fields.hasErrors('${model}')}">
+        <h4><strong>Logowanie nie powiodło się!</strong><br/></h4>
+        <h5 th:each="e : ${#fields.errors('${model}')}" th:text="${e}"></h5>
+    </div>
+
+    <div class="row" >
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div id="form-olvidado">
+
+                <form action="#" th:action="@{/login}" th:object="${model}" class="form-conatiner" method="post" role="form">
+                    <h3><span class="text-warning">LOGOWANIE</span></h3>
+                    <div class="form-group">
+                        <h5><label for="exampleInputEmail1">Login</label></h5>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Login" th:field="*{pesel}"/>
+                        <span class="text-danger" th:if="${#fields.hasErrors('pesel')}" th:errors="*{pesel}"></span>
+                    </div>
+                    <div class="form-group">
+                        <h5><label for="exampleInputPassword1">Hasło</label></h5>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Hasło"th:field="*{haslo}">
+                        <span class="text-danger" th:if="${#fields.hasErrors('haslo')}" th:errors="*{haslo}"></span>
+                    </div>
+                    <div class="container">
+                        <a href="/reset"><b><span class="text-danger">Zapomniałem(am) hasło</span></b></a>
+                    </div>
+                    <button class="btn btn-warning text-white top-button">LOGUJ</button>
+                </form>
+            </div>
+            <form action="#" th:action="@{/register}">
+            <button class="btn btn-danger text-white top-button">ZAREJESTRUJ</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="js/jquery-3.2.1.slim.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

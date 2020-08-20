@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bank</title>
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="style/font-awesome.min.css">
+    <link rel="stylesheet" href="style/custom.css">
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+
+<!-- Top -->
+<div class="container-fluid text-white text-center top" >
+
+    <div class="row" >
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div id="form-olvidado">
+
+               <form class="form-conatiner">
+                <h3><span class="text-warning">LOGOWANIE</span></h3>
+                <div class="form-group">
+                    <span class="text-warning"><h6><label for="exampleInputEmail1">Login</label></h6></span>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Login">
+                </div>
+                <div class="form-group">
+                    <span class="text-warning"><h6><label for="exampleInputPassword1">Hasło</label></h6></span>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Hasło">
+                </div>
+                <div class="container">
+                    <a href="#" data-target="#pwdModal" data-toggle="modal" id="olvidado"><b><span class="text-danger">Zapomniałem(am) hasło</span></b></a>
+                   </div>
+                   <button class="btn btn-warning text-white top-button">LOGUJ</button>
+            </form>
+            </div>
+            
+                <div style="display: block;" id="form-olvidado">
+
+                    <form accept-charset="UTF-8" role="form" id="login-recordar" method="post">
+                        <fieldset>
+                            <h3><span class="text-warning">RESET HASŁA</span></h3>
+                            <h6><span class="text-warning">Podaj swój PESEL, nowe hasło wyślemy na Twój adres e-mail</span></h6>
+                            <div class="form-group input-group">
+                                <input class="form-control" placeholder="PESEL" name="pesel" required="">
+                            </div>
+                            <div class="container">
+                                <a href="#" data-target="#pwdModal" data-toggle="modal" id="acceso"><b><span class="text-danger">Powrót do logowania</span></b></a>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-warning top-button" id="btn-olvidado">
+                                RESETUJ HASŁO
+                            </button>
+                        </fieldset>
+                    </form>
+                </div>
+
+
+
+
+               
+
+            
+            <button class="btn btn-danger text-white top-button">ZAREJESTRUJ</button>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="js/jquery-3.2.1.slim.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
+
+
+<script type="text/javascript">
+        $(document).ready(function() {
+            $('#olvidado').click(function(e) {
+                e.preventDefault();
+                $('div#form-olvidado').toggle('500');
+            });
+            $('#acceso').click(function(e) {
+                e.preventDefault();
+                $('div#form-olvidado').toggle('500');
+            });
+        });
+    </script>
+</body>
+</html>
